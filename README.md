@@ -1,20 +1,19 @@
 # CoexFix
 
-**¿Se te cae el WiFi cuando conectás los auriculares Bluetooth?** Ese síntoma tiene causa concreta y solución. CoexFix la diagnostica y corrige lo que se puede corregir por software.
+**Diagnóstico de problemas entre WiFi de 2,4 GHz y Bluetooth en Windows 10/11.**
 
-Windows 10 y 11. Sin instalación, sin dependencias, sin telemetría.
+Herramientas PowerShell para reunir información del equipo, evaluar ajustes por software y conservar respaldos que permitan revertir cambios.
 
----
+[Explorar las herramientas](https://github.com/JuanEstebanHerreraH/Coexfix) · [Guía PDF](CoexFix-Guia.pdf) · [Reportar un problema](https://github.com/JuanEstebanHerreraH/Coexfix/issues)
 
-## El problema
+Empieza por el diagnóstico. Mantén cada archivo BAT junto a su PS1 correspondiente; la guía detalla qué hace cada opción.
 
-El WiFi de 2.4 GHz y el Bluetooth ocupan la misma banda del espectro (2.400–2.4835 GHz). No es que se parezcan: comparten el aire. Bluetooth salta entre 79 canales unas 1600 veces por segundo, pisando los que usa el WiFi.
+**Decisión de implementación:** diagnóstico, reparación y respaldo se separan para poder revisar el estado antes de aplicar ajustes.
 
-Cuando ambos adaptadores están enchufados uno al lado del otro aparece un segundo mecanismo, más severo que la colisión de paquetes: **desensibilización del receptor**. El WiFi intenta escuchar señales de unos −70 dBm mientras un transmisor Bluetooth emite a +4 dBm desde centímetros de distancia. Son ~74 dB de diferencia entrando por la misma antena. Un front-end con filtro SAW y buen blindaje lo tolera; un dongle genérico no.
+**Alcance:** una interferencia puede depender del hardware, sus antenas o el entorno. La herramienta no garantiza corregirla por software; las operaciones administrativas se describen en la guía.
 
-Por eso el síntoma aparece **al habilitar Bluetooth**, sin importar si se reproduce audio o no. Y por eso suele notarse más bajo carga: con varias aplicaciones abiertas, el margen para absorber retransmisiones desaparece.
-
-Los fabricantes lo saben. Varias fichas de adaptadores WiFi+BT recomiendan explícitamente usar 5 GHz cuando se usan auriculares Bluetooth.
+<details>
+<summary><strong>Funciones, requisitos y documentación técnica</strong></summary>
 
 ## Estructura
 
@@ -166,3 +165,5 @@ Si algo no funciona, abrí un issue y adjuntá el informe del diagnóstico. Revi
 ## Licencia
 
 MIT
+
+</details>
